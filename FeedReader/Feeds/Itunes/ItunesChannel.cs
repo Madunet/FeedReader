@@ -17,6 +17,7 @@
         public ItunesChannel(XElement channelElement)
         {
             Author = channelElement.GetValue(NAMESPACEPREFIX, "author");
+            Type = channelElement.GetValue(NAMESPACEPREFIX, "type");
             Block = channelElement.GetValue(NAMESPACEPREFIX, "block").EqualsIgnoreCase("yes");
             Categories = GetItunesCategories(channelElement);
 
@@ -52,6 +53,11 @@
         /// </summary>
         public string Author { get; }
 
+        /// <summary>
+        /// The itunes:type element
+        /// </summary>
+        public string Type { get; }
+        
         /// <summary>
         /// The itunes:block element
         /// </summary>
